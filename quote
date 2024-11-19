@@ -1,0 +1,24 @@
+import random
+def quote():
+    myfile=open('quotes.txt', 'w')
+    counter=0
+    loop=int(input("How many quotes would you like to enter?"))
+    while counter<loop:
+        quote=input("What is the quote you would like to add?")
+        counter+=1
+        myfile.write(f'{quote} \n')
+        #myfile.close()#no need to close file here
+    #counter2=0
+    quote_list=[]#put this inside your quote() function
+    myfile=open('quotes.txt', 'r')#This should be outside the second while loop
+    #while counter2<loop:
+    for line in myfile:#use this loop instead
+        #content=myfile.readline()#you don't need to put anything inside readline()
+        quote_list.append(line)
+        #counter2+=1
+    myfile.close()#make sure you have () right after close & make sure this is outside of the loop
+    oofnum=len(quote_list) #you don't need to minus 1 here 
+    num6=random.randrange(0,oofnum)#use randrange() instead
+    print(f'{quote_list[num6]}')
+       
+quote()
